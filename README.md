@@ -1,4 +1,4 @@
-# Quiz-Interativo
+# Quiz Interativo
 
 Um quiz interativo, usando JavaScript puro.
 
