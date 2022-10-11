@@ -4,90 +4,133 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <title>Quiz | Você consegue acertar qual é o filme pelo título em português de Portugal?</title>
+  <title>Quiz CRJM Etapa 1 - Os primeiros passos</title>
 </head>
 <body>
   <div class="intro py-3 bg-primary text-center">
     <div class="container">
       <h2 class="text-light display-3 my-4">Quiz</h2>
+      <p class="display-4">Etapa 1 <br>Os primeiros passos</p>
     </div>
   </div>
 
   <div class="quiz py-4 bg-dark">
     <div class="container">
-      <h2 class="my-5 text-white">Você consegue acertar qual é o filme pelo título em português de Portugal?</h2>
+      <h2 class="my-5 text-white">Você realmente prestou atenção na etapa 1 do CJRM ? 🤔</h2>
 
       <form class="quiz-form text-light">
         <div class="my-5">
-          <p class="lead font-weight-normal">1. "O Mal Disposto" é o nome dado para o filme:</p>
+          <p class="lead font-weight-normal">1. Quando devemos usar uma <code>const</code>?</p>
           <div class="form-check my-2 text-white-50">
             <label class="form-check-label">
-              <input type="radio" name="inputQuestion1" value="A" checked>
-              Psicose
+              <input type="radio" name="inputQuestion1" value="A">
+              Usamos const quando não queremos reatribuir algum valor a variável.
             </label>
           </div>
           <div class="form-check my-2 text-white-50">
             <label class="form-check-label">
               <input type="radio" name="inputQuestion1" value="B">
-              Meu Malvado Favorito
+              Usamos const quando queremos armazenar um valor e esse valor pode ser reatribuido em outras partes do código.
             </label>
           </div>
         </div>
 
         <div class="my-5">
-          <p class="lead font-weight-normal">2. "O Aviso" é o nome dado para o filme de terror:</p>
+          <p class="lead font-weight-normal">2. Atualmente o javascript possui quais tipos de dados?</p>
           <div class="form-check my-2 text-white-50">
             <label class="form-check-label">
-              <input type="radio" name="inputQuestion2" value="A" checked>
-              O Grito
+              <input type="radio" name="inputQuestion2" value="A">
+              integer, float, string, boolean, array, object, null
+              
             </label>
           </div>
           <div class="form-check my-2 text-white-50">
             <label class="form-check-label">
               <input type="radio" name="inputQuestion2" value="B">
-              O Chamado
+              Number, String, Boolean, Null, Undefined, Object, Symbol, BigInt
             </label>
           </div>
         </div>
 
         <div class="my-5">
-          <p class="lead font-weight-normal">3. "Uma Família a Beira de um Ataque de Nervos" é o título de:</p>
+          <p class="lead font-weight-normal">3. Qual a duferença entre métodos e funções?</p>
           <div class="form-check my-2 text-white-50">
             <label class="form-check-label">
-              <input type="radio" name="inputQuestion3" value="A" checked>
-              Família do Bagulho
+              <input type="radio" name="inputQuestion3" value="A">
+              Função é um bloco de código que executa alguma ação. Método é uma função, que está associada a um objeto.
             </label>
           </div>
           <div class="form-check my-2 text-white-50">
             <label class="form-check-label">
               <input type="radio" name="inputQuestion3" value="B">
-              Pequena Miss Sunshine
+              Funções podem retornar um valor e métodos não.
             </label>
           </div>
         </div>
 
         <div class="my-5">
-          <p class="lead font-weight-normal">4. "O Rei dos Gazeteiros" é o famoso filme:</p>
+          <p class="lead font-weight-normal">4. Qual das definições a baixo descrevem melhor o funcionamento do <code>NaN</code></p>
           <div class="form-check my-2 text-white-50">
             <label class="form-check-label">
-              <input type="radio" name="inputQuestion4" value="A" checked>
-              O Lobo de Wall Street
+              <input type="radio" name="inputQuestion4" value="A">
+              <code>NaN</code> é um valor numérico que representa infinito.
             </label>
           </div>
           <div class="form-check my-2 text-white-50">
             <label class="form-check-label">
               <input type="radio" name="inputQuestion4" value="B">
-              Curtindo a Vida Adoidado
+              <code>NaN</code> é sempre o resultado de uma operação matemática incorreta.
+            </label>
+          </div>
+        </div>
+
+        <div class="my-5">
+          <p class="lead font-weight-normal">5. Qual a definição correta para o tipo de dado <code>undefined</code>?</p>
+          <div class="form-check my-2 text-white-50">
+            <label class="form-check-label">
+              <input type="radio" name="inputQuestion5" value="A">
+              Usado para deixar explicito que foi setado um valor vazio.
+            </label>
+          </div>
+          <div class="form-check my-2 text-white-50">
+            <label class="form-check-label">
+              <input type="radio" name="inputQuestion5" value="B">
+              Valor ainda não definido, setado pelo javascript.
             </label>
           </div>
         </div>
         
         <div class="text-center">
-          <button class="btn bg-primary text-light">Enviar</button>
+          <button class="btn bg-primary text-light" data-toggle="modal" data-target="#exampleModal">Enviar</button>
         </div>
       </form>
     </div>
   </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sua pontuação foi...</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="display-3" id="score"></p>
+          <span id="result-feedback">Feedback aqui... ?</span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Reiniciar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   <script src="./app.js"></script>
 </body>
