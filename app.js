@@ -1,54 +1,51 @@
-// regra para verificar se todas as questões estão marcadas
-
 const form = document.querySelector('.quiz-form')
 const correctAnswers = ['A', 'B', 'A', 'B', 'B']
 const scoreParagraph = document.querySelector('#score')
 const scoreFeedbackElement = document.querySelector('#result-feedback')
-const restartButton = document.querySelector('#re-start-quiz') 
 const dangerScore = 40
 const warningScore = 60
 const sucessScore = 80
-const masterScore = 100
-let score = 0
+const maxScore = 100
 
-const dangerFeedbackOpntions = {
+const dangerFeedbackInfo = {
   className: 'text-danger',
-  textContent: `Hmm... você errou algumas questões chaves, 
-    mas não desanime, você pode rever as aulas de etapa 1, e tentar novamente`
+  textContent: `Hmm... você errou a maioria das questões, 
+    mas não desanime, você pode rever as aulas de etapa 1, e tentar novamente.`
 }
 
-const warningFeedback = {
+const warningFeedbackInfo = {
   className: 'text-warning',
-  textContent: `Você acertou boa parte das questões, você foi bem`
+  textContent: `Você tirou uma nota razoável, mas é bom rever novamentes as aulas da etapa 1`
 }
 
-const successFeedback = {
+const successFeedbackInfo = {
+  className: 'text-info',
+  textContent: `Você acertou quase tudo, errou apenas uma questão. Você foi muito bem. =)`
+}
+
+const maxFeedbackInfo = {
   className: 'text-success',
-  textContent: `Parabéns! você acertou quase tudo, errou apenas uma questão. Arrazoou!`
+  textContent: `Parabéns, Você acertou todas as questões. Você está pronto para a etapa 2`
 }
 
-const masterFeedback = {
-  className: 'text-primary',
-  textContent: `Você acertou tudo o_o' `
-}
+let score = 0
 
 const addToScore = questionScore => score += questionScore
 const resetScore = () => score = 0
 const renderScore = score => scoreParagraph.textContent = score
 
-const renderFeedback = ({className, textContent}) => {
+const renderFeedback = ({ className, textContent }) => {
   scoreFeedbackElement.textContent = textContent
   scoreFeedbackElement.setAttribute('class', className)
 }
 
 const checkAnswer = (userAnswer, index) => {
-  const maxScore = 100
   const questionScore = maxScore / correctAnswers.length
   const isRightAnswer = userAnswer === correctAnswers[index]
 
-  if (isRightAnswer) {
-    addToScore(questionScore)
-  }
+  if(!isRightAnswer) return
+
+  addToScore(questionScore)
 }
 
 const handleFormSubmit = event => {
@@ -64,31 +61,13 @@ const handleFormSubmit = event => {
 
   userAnswers.forEach(checkAnswer)
 
-  if (score <= dangerScore) {
-    renderFeedback(dangerFeedbackOpntions)
-  }
-
-  if (score === warningScore) {
-    renderFeedback(warningFeedback)
-  }
-
-  if (score === sucessScore) {
-    renderFeedback(successFeedback)
-  }
-
-  if (score === masterScore) {
-    renderFeedback(masterFeedback)
-  }
+  if (score <= dangerScore) renderFeedback(dangerFeedbackInfo)
+  if (score === warningScore) renderFeedback(warningFeedbackInfo)
+  if (score === sucessScore) renderFeedback(successFeedbackInfo)
+  if (score === maxScore) renderFeedback(maxFeedbackInfo)
 
   renderScore(score)
   resetScore()
 }
 
-const restartQuiz = () => {
-  const inputs = form.querySelectorAll('input')
-
-  inputs.forEach(input => input.checked = false)
-}
-
 form.addEventListener('submit', handleFormSubmit)
-restartButton.addEventListener('click', restartQuiz)
