@@ -33,7 +33,7 @@ const maxFeedbackInfo = {
 
 const addToScore = questionScore => score += questionScore
 const resetScore = () => score = 0
-const renderScore = score => scoreParagraph.textContent = score
+const renderScore = score => scoreParagraph.textContent = `${score}%`
 const showModalResult = () => modalResult.style.display = 'block'
 const closeModalResult = () => modalResult.style.display = 'none'
 
