@@ -1,11 +1,14 @@
 const form = document.querySelector('.quiz-form')
+const modalResult = document.querySelector('.modal')
 const correctAnswers = ['A', 'B', 'A', 'B', 'B']
 const scoreParagraph = document.querySelector('#score')
 const scoreFeedbackElement = document.querySelector('#result-feedback')
+const closeModalResultButton = document.querySelector('#close-quiz')
 const dangerScore = 40
 const warningScore = 60
 const sucessScore = 80
 const maxScore = 100
+let score = 0
 
 const dangerFeedbackInfo = {
   className: 'text-danger',
@@ -28,11 +31,11 @@ const maxFeedbackInfo = {
   textContent: `Parabéns, Você acertou todas as questões. Você está pronto para a etapa 2`
 }
 
-let score = 0
-
 const addToScore = questionScore => score += questionScore
 const resetScore = () => score = 0
 const renderScore = score => scoreParagraph.textContent = score
+const showModalResult = () => modalResult.style.display = 'block'
+const closeModalResult = () => modalResult.style.display = 'none'
 
 const renderFeedback = ({ className, textContent }) => {
   scoreFeedbackElement.textContent = textContent
@@ -48,7 +51,7 @@ const checkAnswer = (userAnswer, index) => {
   addToScore(questionScore)
 }
 
-const handleFormSubmit = event => {
+const showScore = event => {
   event.preventDefault()
 
   const userAnswers = [
@@ -68,6 +71,8 @@ const handleFormSubmit = event => {
 
   renderScore(score)
   resetScore()
+  showModalResult()
 }
 
-form.addEventListener('submit', handleFormSubmit)
+form.addEventListener('submit', showScore)
+closeModalResultButton.addEventListener('click', closeModalResult)
